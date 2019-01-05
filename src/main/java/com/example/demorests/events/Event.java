@@ -7,6 +7,7 @@ package com.example.demorests.events;
 
 import lombok.*;
 
+import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Builder
@@ -15,7 +16,10 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @EqualsAndHashCode(of = {"id", "name"})
+@Entity
 public class Event {
+    @Id
+    @GeneratedValue
     private Integer id;
     private String name;
     private String description;
@@ -29,5 +33,7 @@ public class Event {
     private int limitOfEnrollment;
     private boolean offline;
     private boolean free;
+
+    @Enumerated(EnumType.STRING)
     private EventStatus eventStatus = EventStatus.DRAFT;
 }
