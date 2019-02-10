@@ -23,13 +23,12 @@ import static org.springframework.hateoas.mvc.ControllerLinkBuilder.linkTo;
 public class EventController {
 
     private final EventRepository eventRepository;
-
     private final ModelMapper modelMapper;
 
     @Autowired
-    public EventController(EventRepository eventRepository, ModelMapper modelMapper) {
-        this.eventRepository = eventRepository;
+    public EventController(ModelMapper modelMapper, EventRepository eventRepository) {
         this.modelMapper = modelMapper;
+        this.eventRepository = eventRepository;
     }
 
     @PostMapping
